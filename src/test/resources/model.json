@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultSchema": "SALES",
+  "schemas": [
+    {
+      "name": "SALES",
+      "type": "custom",
+      "factory": "com.jdreamer.driver.csv.CsvSchemaFactory",
+      "operand": {
+        "directory": "sales"
+      }
+    }
+  ]
+}

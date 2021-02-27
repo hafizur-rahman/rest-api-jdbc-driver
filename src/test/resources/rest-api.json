@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "defaultSchema": "WEB_DATA",
+  "schemas": [
+    {
+      "name": "WEB_DATA",
+      "type": "custom",
+      "factory": "com.jdreamer.driver.web.WebDataSchemaFactory",
+      "operand": {
+        "url": "http://localhost:8080/datalake/",
+        "tenantId": "1",
+        "catalog": "demo"
+      }
+    }
+  ]
+}

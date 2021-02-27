@@ -1,0 +1,1 @@
+!connect jdbc:calcite:schemaFactory=com.jdreamer.driver.web.WebDataSchemaFactory;case_sensitive=false;schema.name=test;schema.url=http://localhost:8080/datalake/;schema.tenantId=1;schema.catalog=demo admin admin

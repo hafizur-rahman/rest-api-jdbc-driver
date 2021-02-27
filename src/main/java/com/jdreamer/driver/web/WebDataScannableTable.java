@@ -1,4 +1,4 @@
-package com.jdreamer.rest;
+package com.jdreamer.driver.web;
 
 import org.apache.calcite.DataContext;
 import org.apache.calcite.adapter.file.CsvEnumerator;
@@ -11,7 +11,6 @@ import org.apache.calcite.rel.type.RelProtoDataType;
 import org.apache.calcite.schema.ScannableTable;
 import org.apache.calcite.util.ImmutableIntList;
 import org.apache.calcite.util.Source;
-
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.List;
@@ -19,24 +18,20 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import static java.util.Objects.requireNonNull;
 
-/**
- * Table based on a CSV file.
- *
- * <p>It implements the {@link ScannableTable} interface, so Calcite gets
- * data by calling the {@link #scan(DataContext)} method.
- */
-public class CsvScannableTable extends CsvTable
-        implements ScannableTable {
-    /** Creates a CsvScannableTable. */
-    CsvScannableTable(Source source, RelProtoDataType protoRowType) {
+public class WebDataScannableTable extends CsvTable implements ScannableTable {
+
+    /** Creates a WebDataScannableTable. */
+    WebDataScannableTable(Source source, RelProtoDataType protoRowType) {
         super(source, protoRowType);
     }
 
-    @Override public String toString() {
-        return "CsvScannableTable";
+    @Override
+    public String toString() {
+        return "WebDataScannableTable";
     }
 
-    @Override public Enumerable<@Nullable Object[]> scan(DataContext root) {
+    @Override
+    public Enumerable<@Nullable Object[]> scan(DataContext root) {
         JavaTypeFactory typeFactory = requireNonNull(root.getTypeFactory(), "root.getTypeFactory");
         final List<CsvFieldType> fieldTypes = getFieldTypes(typeFactory);
         final List<Integer> fields = ImmutableIntList.identity(fieldTypes.size());
